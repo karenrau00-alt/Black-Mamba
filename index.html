@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Black Mamba Alfajores</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
   <style>
-    /* estilos.css */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
@@ -24,15 +25,15 @@
     }
 
     .logo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
     }
 
     .logo img {
-        width: 80px;
-        height: 80px;
+      width: 80px;
+      height: 80px;
     }
 
     .logo h1 {
@@ -55,7 +56,7 @@
       padding: 0;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
+      flex-wrap: wrap;
       border-top: 2px solid hotpink;
       margin-top: 20px;
       padding-top: 15px;
@@ -73,8 +74,8 @@
     }
 
     nav a:hover {
-        color: hotpink;
-        text-shadow: 0 0 5px hotpink;
+      color: hotpink;
+      text-shadow: 0 0 5px hotpink;
     }
 
     .carrito {
@@ -82,7 +83,7 @@
       color: hotpink;
       cursor: pointer;
     }
-
+    
     .portada img {
       width: 100%;
       max-height: 60vh;
@@ -91,57 +92,63 @@
       margin: 0 auto;
     }
 
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px;
+      background-color: #111;
+    }
+
+    .galeria img {
+      width: 300px;
+      height: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px hotpink;
+      object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .galeria img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px hotpink;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
       background-color: #111;
       font-size: 0.9em;
       border-top: 1px solid #333;
-    }
-
-    /* Estilos para el modal */
-    .modal {
-      display: none; /* Oculto por defecto */
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.7);
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-contenido {
-      background-color: #1a1a1a;
-      margin: auto;
-      padding: 30px;
-      border: 1px solid hotpink;
-      width: 80%;
-      max-width: 400px;
-      text-align: center;
-      border-radius: 10px;
-      box-shadow: 0 0 20px hotpink;
       position: relative;
     }
-
-    .cerrar-modal {
-      color: #aaa;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
+    
+    /* --- ESTILO PARA EL BOTÓN FLOTANTE --- */
+    .whatsapp-flotante {
+        position: fixed; /* Esto hace que el botón flote y se quede fijo en la pantalla */
+        bottom: 25px;    /* Distancia desde el borde inferior */
+        right: 25px;     /* Distancia desde el borde derecho */
+        width: 140px;    /* El tamaño grande que querías */
+        height: 140px;
+        z-index: 1001;   /* Se asegura de que esté por encima de todo */
+        transition: transform 0.3s ease;
+    }
+    
+    .whatsapp-flotante:hover {
+        transform: scale(1.1); /* Pequeño efecto al pasar el cursor */
     }
 
-    .cerrar-modal:hover,
-    .cerrar-modal:focus {
-      color: white;
-      text-decoration: none;
+    .whatsapp-flotante img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
+
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.7); align-items: center; justify-content: center; }
+    .modal-contenido { background-color: #1a1a1a; margin: auto; padding: 30px; border: 1px solid hotpink; width: 80%; max-width: 400px; text-align: center; border-radius: 10px; box-shadow: 0 0 20px hotpink; position: relative; }
+    .cerrar-modal { color: #aaa; position: absolute; top: 10px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; }
+    .cerrar-modal:hover, .cerrar-modal:focus { color: white; text-decoration: none; }
   </style>
 </head>
 <body>
@@ -167,13 +174,24 @@
     <section class="portada">
       <img src="https://placehold.co/1200x500/1a1a1a/ffffff?text=Deliciosos+Alfajores" alt="Alfajores artesanales" />
     </section>
+
+    <section class="galeria">
+        <img src="https://placehold.co/300x300/1a1a1a/hotpink?text=Alfajor+1" alt="Foto de alfajor 1">
+        <img src="https://placehold.co/300x300/1a1a1a/hotpink?text=Alfajor+2" alt="Foto de alfajor 2">
+        <img src="https://placehold.co/300x300/1a1a1a/hotpink?text=Alfajor+3" alt="Foto de alfajor 3">
+        <img src="https://placehold.co/300x300/1a1a1a/hotpink?text=Alfajor+4" alt="Foto de alfajor 4">
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Black Mamba. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- El Modal -->
+  <!-- El botón ahora está aquí, fuera del menú y con la clase para flotar -->
+  <a href="https://wa.me/59899579553?text=Hola%20soy%20mamba" class="whatsapp-flotante" target="_blank" title="Contáctanos por WhatsApp">
+    <img src="https://raw.githubusercontent.com/karenrau00-alt/Black-Mamba/c22448e56669b760777e372c6cc0770cf38e13f4/assets/imagenes/icono.de.watsapp" alt="Contactar por WhatsApp">
+  </a>
+
   <div id="miModal" class="modal">
     <div class="modal-contenido">
       <span class="cerrar-modal">&times;</span>
@@ -183,23 +201,18 @@
   </div>
 
   <script>
-    // script.js
-    // Obtener los elementos del DOM
     const modal = document.getElementById('miModal');
     const carritoBtn = document.querySelector('.carrito');
     const spanCerrar = document.querySelector('.cerrar-modal');
 
-    // Cuando el usuario hace clic en el carrito, abre el modal
     carritoBtn.onclick = function() {
       modal.style.display = 'flex';
     }
 
-    // Cuando el usuario hace clic en (x), cierra el modal
     spanCerrar.onclick = function() {
       modal.style.display = 'none';
     }
 
-    // Cuando el usuario hace clic fuera del contenido, cierra el modal
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = 'none';
